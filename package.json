@@ -21,7 +21,7 @@
   "dependencies": {
     "clean-css": "^4.1.7",
     "on-headers": "^1.0.1",
-    "uglify-js": "^3.7.1"
+    "terser": "^4.4.2"
   },
   "devDependencies": {
     "async": "^2.5.0",
