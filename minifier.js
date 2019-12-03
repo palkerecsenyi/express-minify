@@ -51,7 +51,7 @@ Minifier.defaultErrorHandler = function (errorInfo, callback) {
 Minifier.prototype._minifyJavaScript = function (options, body, callback) {
   assert(typeof callback === 'function');
   if (!this.uglifyJsModule) {
-    this.uglifyJsModule = require('uglify-js');
+    this.uglifyJsModule = require('terser');
   }
   if (options.minify === false) {
     return callback(null, body);
