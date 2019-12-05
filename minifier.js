@@ -54,9 +54,6 @@ Minifier.prototype._minifyJavaScript = function (options, body, callback) {
   if (!this.uglifyJsModule) {
     this.uglifyJsModule = require('terser');
   }
-  if(!this.babelModule) {
-    this.babelModule = require('babel-core');
-  }
   if (options.minify === false) {
     return callback(null, body);
   }
