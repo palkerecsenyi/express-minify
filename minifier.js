@@ -24,6 +24,7 @@ function Minifier (options) {
   options = options || {};
   this.handleError = options.errorHandler || Minifier.defaultErrorHandler;
   this.uglifyJsModule = options.uglifyJsModule || testModule('terser');
+  this.babelModule = testModule('babel-core');
   this.cleanCssModule = testModule('clean-css');
   this.sassModule = testModule('node-sass');
   this.lessModule = testModule('less');
@@ -53,6 +54,9 @@ Minifier.prototype._minifyJavaScript = function (options, body, callback) {
   if (!this.uglifyJsModule) {
     this.uglifyJsModule = require('terser');
   }
+  if(!this.babelModule) {
+    this.babelModule = require('babel-core');
+  }
   if (options.minify === false) {
     return callback(null, body);
   }
@@ -60,6 +64,8 @@ Minifier.prototype._minifyJavaScript = function (options, body, callback) {
   if (result.error) {
     return callback({ stage: 'minify', error: result.error, body: body }, null);
   }
+
+  result = this.babelModule.transformSync(result.code);
   callback(null, result.code);
 };
 

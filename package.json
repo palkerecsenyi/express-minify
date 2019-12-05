@@ -21,7 +21,8 @@
   "dependencies": {
     "clean-css": "^4.1.7",
     "on-headers": "^1.0.1",
-    "terser": "^4.4.2"
+    "terser": "^4.4.2",
+    "babel-core": "^6.26.3"
   },
   "devDependencies": {
     "async": "^2.5.0",
