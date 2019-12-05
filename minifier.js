@@ -60,12 +60,13 @@ Minifier.prototype._minifyJavaScript = function (options, body, callback) {
   if (options.minify === false) {
     return callback(null, body);
   }
-  var result = this.uglifyJsModule.minify(body, options.js);
+
+  var result = babel.transform(body, {presets: ['babel-preset-env']});
+
+  result = this.uglifyJsModule.minify(result.code, options.js);
   if (result.error) {
     return callback({ stage: 'minify', error: result.error, body: body }, null);
   }
-
-  result = babel.transform(result.code);
   callback(null, result.code);
 };
 

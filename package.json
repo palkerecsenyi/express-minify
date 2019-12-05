@@ -19,10 +19,11 @@
     "url": "git://github.com/breeswish/express-minify.git"
   },
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "clean-css": "^4.1.7",
     "on-headers": "^1.0.1",
-    "terser": "^4.4.2",
-    "babel-core": "^6.26.3"
+    "terser": "^4.4.2"
   },
   "devDependencies": {
     "async": "^2.5.0",
